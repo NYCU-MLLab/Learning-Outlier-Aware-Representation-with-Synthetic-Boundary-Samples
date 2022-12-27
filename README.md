@@ -7,6 +7,8 @@ This is the PyTorch implementation for Learning Outlier-Aware Representation wit
 ```
 pip install -r requirements.txt
 ```
+- [download link](https://www.robots.ox.ac.uk/~vgg/data/dtd/download/dtd-r1.0.1.tar.gz) for dtd dataset (store in `./datasets/dtd/`)
+
 
 ## Run Training
 
