@@ -30,3 +30,36 @@ python ./draw_his.py --training-mode SimCLR --normalize --ckpt ./compare_ckp/cif
 ```
 python -u tsne.py --training-mode SimCLR --arch resnet18 --dataset cifar10 --normalize --run-name name --ckpt path_to_checkpoint
 ```
+
+---
+
+## Extend work
+
+# False Negative Masking for Contrastive Learning
+
+## Environment Setup
+- Install the required packages
+```
+pip install -r requirements.txt
+```
+
+## Run Training
+
+```
+python cls_train.py --dataset cifar10 --num-classes 10 --results-dir path --exp-name name --warmup --normalize --fnm-epoch 350
+```
+- `--result_dir`: path folder for storing the evaluation result
+- `--fnm-epoch`: how many epochs of training before starting to use the false negative masking
+
+
+## Linear Evaluation
+
+The model is evaluated by training a linear classifier after fixing the learned embedding.
+
+
+```
+python ./cls_linear.py --ckpt ckpt_path --result_dir path --dataset cifar10 --classes 10
+```
+- `--ckpt`: path for the model checkpoint
+- `--result_dir`: path folder for storing the evaluation result
+

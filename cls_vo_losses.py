@@ -124,12 +124,12 @@ class VOConLoss(nn.Module):
         logits = anchor_dot_contrast - logits_max.detach()
 
         fntime = time.time()
-        print("start getting mask")
+        # print("start getting mask")
         # remove false negative
         if fnm:
             fnmask = get_fnmask(contrast_feature, device)
             logits_mask *= fnmask
-        print("got mask:", time.time() - fntime)
+        # print("got mask:", time.time() - fntime)
         
         log_prob = (mask * logits).sum(1) / mask.sum(1)
         exp_logits = (torch.exp(logits) * logits_mask).sum(1)
